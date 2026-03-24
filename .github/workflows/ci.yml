@@ -2,18 +2,33 @@ name: My Super CI workflow
 on:
   push:
 jobs:
-  hello:
-    name: My Hello Job
+  #hello:
+  #  name: My Hello Job
+  #  runs-on: ubuntu-latest
+  #  steps:
+  #    - name: Print Hello there world
+  #      run: echo "Hello there world!"
+  #    - name: Second steps
+  #     run: echo "Second step hello world!"
+
+  #goodbye:
+  #  name: My Goodbye Job
+  #  needs: hello
+  #  runs-on: windows-latest
+  #  steps:
+  #    - run: echo "Goodbye"
+
+  test:
+    name: Test the python
     runs-on: ubuntu-latest
     steps:
-      - name: Print Hello there world
-        run: echo "Hello there world!"
-      - name: Second steps
-       run: echo "Second step hello world!"
-
-  goodbye:
-    name: My Goodbye Job
-    needs: hello
-    runs-on: windows-latest
-    steps:
-      - run: echo "Goodbye"
+      - name: Checkout repo
+        uses: actions/checkout@v6
+      - name: Setup python
+        uses: actions/setup-python@v6
+        with:
+          python-version: 3.10
+      - name: Install the package
+        run: pip install .[test]
+      - name: Run the tests
+        run: pytest --vv

@@ -7,9 +7,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print Hello there world
-      - run: echo "Hello there world!"
+        run: echo "Hello there world!"
       - name: Second steps
-      - run: echo "Second step hello world!"
+       run: echo "Second step hello world!"
 
   goodbye:
     name: My Goodbye Job

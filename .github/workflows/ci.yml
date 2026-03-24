@@ -7,20 +7,20 @@ on:
 
 jobs:
   hello:
-   name: My Hello Job
-   runs-on: ubuntu-latest
-   steps:
-    - name: Print Hello there world
-      run: echo "Hello there world!"
-    - name: Second steps
-      run: echo "Second step hello world!"
+    name: My Hello Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Hello there world
+        run: echo "Hello there world!"
+      - name: Second steps
+        run: echo "Second step hello world!"
 
   goodbye:
-   name: My Goodbye Job
-   needs: hello
-   runs-on: windows-latest
-   steps:
-     - run: echo "Goodbye"
+    name: My Goodbye Job
+    needs: hello
+    runs-on: windows-latest
+    steps:
+      - run: echo "Goodbye"
 
   test:
     name: Test the python
